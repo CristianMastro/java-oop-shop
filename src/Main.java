@@ -13,35 +13,32 @@ Usate opportunamente costruttori, attributi ed eventuali altri metodi di “util
 Nella stessa cartella src aggiungete una classe Main con metodo main nella quale testate tutte le funzionalità della classe Prodotto.
 */
 
-import java.util.Random;
-
-
 public class Main {
     public static void main(String[] args) {
         
-        Prodotto maglia = new Prodotto();
+        Prodotto maglia = new Prodotto("maglia Nike", "Maglia 100% poliestere", 65);
+
+        maglia.setPriceIva(maglia.price);
+        System.out.println("Prezzo ivato: " + maglia.getIvaPrice());
+
+        //prove per cambiare variabili//
+        maglia.setName("maglione");
+        maglia.setDescription("100% lana");
+        maglia.setPrice(100);
+
+        maglia.setPriceIva(maglia.price);
+        System.out.println("Prezzo ivato: " + maglia.getIvaPrice());
+
+
+
         
-        //metodo per creare numero random preso dalla libreria di java//
-        Random random = new Random();
-
-        //prezzo//
-        maglia.price = 100;
-        //nome articolo//
-        maglia.name = "T-shirt";
-        //codice prodotto//
-        maglia.code = random.nextInt(1000);
-        //prezzo invato//
-        maglia.priceIva(maglia.price);
-        //descrizione prodotto//
-        maglia.description = "Maglia in cotone realizzata a mano";
-
-        System.out.println("Prezzo maglia senza iva è: " + maglia.getPrice());
+        
         System.out.println("Articolo: " + maglia.getNameProduct());
-        System.out.println("Prezzo maglia ivato: " + maglia.getIvaPrice());
-
-        System.out.println("Codice prodotto: " + maglia.getCode());
-        System.out.println("Descrizione prodotto: " + maglia.getDescription());
         System.out.println("Nome prodotto: " + maglia.getName());
+        System.out.println("Descrizione prodotto: " + maglia.getDescription());
+        System.out.println("Codice prodotto: " + maglia.getCode());
+        System.out.println("Prezzo maglia senza iva è: " + maglia.getPrice());
+        System.out.println("Prezzo ivato: " + maglia.getIvaPrice());
 
 
     }

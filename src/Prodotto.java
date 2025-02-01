@@ -1,3 +1,4 @@
+import java.util.Random;
 
 /**Nel progetto java-oop-shop, creare la classe Prodotto che gestisce i prodotti dello shop.
 Un prodotto è caratterizzato da:
@@ -21,6 +22,21 @@ public class Prodotto {
     public double price;
     public double ivaPrice;
 
+
+//costruttore con elementi//
+public Prodotto(String name, String description, double price){
+    calcolaCodice();
+    this.name = name;
+    this.description = description;
+    this.price = price;
+}
+
+//metodo per avere numero random//
+public void calcolaCodice(){
+    Random random = new Random();
+    this.code = random.nextInt(1000); 
+}
+
 //metodo per avere il codice//
 public int getCode(){
     return code;
@@ -41,8 +57,8 @@ public String getDescription(){
     return description;
 }
 
-//metodo per avere prezzo ivato//
-public double getIvaPrice(){
+//metodo per avere il prezzo ivato//
+public double getIvaPrice() {
     return ivaPrice;
 }
 
@@ -52,9 +68,24 @@ public String getNameProduct(){
 }
 
 //metodo per calcolare l'iva//
-public double priceIva(double price) {
+public double setPriceIva(double price) {
     ivaPrice = price * 1.22;
     return ivaPrice;
+}
+
+//metodo per cambiare valore al nome//
+public void setName(String name) {
+    this.name = name;
+}
+
+//metodo per cambiare valore alla descrizione//
+public void setDescription(String description) {
+    this.description = description;
+}
+
+//metodo per cambiare valore al prezzo//
+public void setPrice(double price) {
+    this.price = price;
 }
 
 }
